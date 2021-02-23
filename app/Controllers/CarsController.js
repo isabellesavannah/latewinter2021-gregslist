@@ -7,20 +7,20 @@ import { carsService } from "../Services/CarsService.js"
     cars.forEach(car=> template += car.Template)
     // console.log(template)
     document.getElementById('cars').innerHTML = template
-    console.log(ProxyState.cars)
+    //console.log(ProxyState.cars)
   }
 
 export default class CarsController{
   constructor(){
-    console.log("cars controller working")
-    console.log(ProxyState.cars)
+    //console.log("cars controller working")
+    //console.log(ProxyState.cars)
     _draw()
     ProxyState.on("cars", _draw)
   }
 
   createCar(event){
     event.preventDefault();
-    console.log('creating car')
+    //console.log('creating car')
     let form = event.target
     console.log(form)
     let rawCar = {
@@ -30,19 +30,19 @@ export default class CarsController{
       price: parseFloat(form.price.value),
       description: form.description.value,
       imgUrl: form.imgUrl.value,
-      miles: form.miles.value
+      // miles: form.miles.value
     }
-    console.log(rawCar)
+    //console.log(rawCar)
     carsService.createCar(rawCar)
   }
 
   bid(id){
-    console.log('bidding ' + id)
+    //console.log('bidding ' + id)
     carsService.bid(id)
   }
 
   deleteCar(id){
-    console.log(id)
+    //console.log(id)
     carsService.deleteCar(id)
   }
 
